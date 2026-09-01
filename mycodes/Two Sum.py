@@ -14,3 +14,4 @@ class Solution:
 #
 # Time Complexity: O(n²) 
 # 1750ms
+# 19.5mb
