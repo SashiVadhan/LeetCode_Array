@@ -24,6 +24,20 @@ But in that case, the time taken can be higher because we have to check
 all the remaining possible positions even when we already know that
 none of them can give a better answer.  ->  (53ms)
 
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        maxi = 0
+        L, R = 0, len(height) - 1
+        while L < R:
+            area = (R - L)*min(height[L], height[R])
+            maxi = max(maxi,area)
+            if height[L] < height[R]:
+                L += 1
+            else:
+                R -= 1
+
+        return maxi
+
 The "tallest * (R - L) <= maxi" condition helps us stop early when the
 maximum possible area from the remaining width cannot exceed maxi.
 """
